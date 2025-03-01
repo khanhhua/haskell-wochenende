@@ -8,15 +8,22 @@ data CsvType = Text | Number
 data CsvData = CsvText String | CsvNumber Int
   deriving Show
 
-rawInputData = "10\n20\n30"
+rawInputData = "Java;10\nPHP;20\nPascal;30"
 
 main :: IO ()
 main = do
   let rows = T.splitOn "\n" rawInputData
-      nums = map (extractData Number . T.unpack) rows
+      csvTypes = [ Text, Number ]
+      nums = map (extractRow csvTypes) rows
 
   forM nums (\num -> putStrLn $ show num)
   return ()
+
+
+extractRow csvTypes row =
+  let items = T.splitOn ";" row
+      pairs = zip csvTypes items
+  in map (\(csvType, s) -> extractData csvType $ T.unpack s) pairs
 
 extractData csvType s =
   case csvType of
