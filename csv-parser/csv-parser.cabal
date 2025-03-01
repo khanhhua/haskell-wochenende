@@ -86,5 +86,5 @@ executable csv-parser-v2
         base ^>=4.17.2.1
       , text ^>=2.0.2
 
-    hs-source-dirs:   app-v1
+    hs-source-dirs:   app-v2
     default-language: Haskell2010
