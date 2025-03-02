@@ -119,7 +119,6 @@ executable csv-parser-v5
     hs-source-dirs:   app-v5
     default-language: Haskell2010
 
-
 executable csv-parser-v6
     import:           warnings
     main-is:          Main.hs
@@ -128,5 +127,15 @@ executable csv-parser-v6
       , text ^>=2.0.2
 
     hs-source-dirs:   app-v6
+    default-language: Haskell2010
+
+executable csv-parser-v7
+    import:           warnings
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.17.2.1
+      , text ^>=2.0.2
+
+    hs-source-dirs:   app-v7
     default-language: Haskell2010
 
