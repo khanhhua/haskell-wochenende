@@ -55,7 +55,7 @@ extra-doc-files:
 common warnings
     ghc-options: -Wall
 
-executable csv-parser-v1
+executable csv-parser-v01
     -- Import common warning flags.
     import:           warnings
 
@@ -74,89 +74,89 @@ executable csv-parser-v1
       , text ^>=2.0.2
 
     -- Directories containing source files.
-    hs-source-dirs:   app-v1
+    hs-source-dirs:   app-v01
 
     -- Base language which the package is written in.
     default-language: Haskell2010
 
-executable csv-parser-v2
+executable csv-parser-v02
     import:           warnings
     main-is:          Main.hs
     build-depends:
         base ^>=4.17.2.1
       , text ^>=2.0.2
 
-    hs-source-dirs:   app-v2
+    hs-source-dirs:   app-v02
     default-language: Haskell2010
 
-executable csv-parser-v3
+executable csv-parser-v03
     import:           warnings
     main-is:          Main.hs
     build-depends:
         base ^>=4.17.2.1
       , text ^>=2.0.2
 
-    hs-source-dirs:   app-v3
+    hs-source-dirs:   app-v03
     default-language: Haskell2010
 
-executable csv-parser-v4
+executable csv-parser-v04
     import:           warnings
     main-is:          Main.hs
     build-depends:
         base ^>=4.17.2.1
       , text ^>=2.0.2
 
-    hs-source-dirs:   app-v4
+    hs-source-dirs:   app-v04
     default-language: Haskell2010
 
-executable csv-parser-v5
+executable csv-parser-v05
     import:           warnings
     main-is:          Main.hs
     build-depends:
         base ^>=4.17.2.1
       , text ^>=2.0.2
 
-    hs-source-dirs:   app-v5
+    hs-source-dirs:   app-v05
     default-language: Haskell2010
 
-executable csv-parser-v6
+executable csv-parser-v06
     import:           warnings
     main-is:          Main.hs
     build-depends:
         base ^>=4.17.2.1
       , text ^>=2.0.2
 
-    hs-source-dirs:   app-v6
+    hs-source-dirs:   app-v06
     default-language: Haskell2010
 
-executable csv-parser-v7
+executable csv-parser-v07
     import:           warnings
     main-is:          Main.hs
     build-depends:
         base ^>=4.17.2.1
       , text ^>=2.0.2
 
-    hs-source-dirs:   app-v7
+    hs-source-dirs:   app-v07
     default-language: Haskell2010
 
-executable csv-parser-v8
+executable csv-parser-v08
     import:           warnings
     main-is:          Main.hs
     build-depends:
         base ^>=4.17.2.1
       , text ^>=2.0.2
 
-    hs-source-dirs:   app-v8
+    hs-source-dirs:   app-v08
     default-language: Haskell2010
 
-executable csv-parser-v9
+executable csv-parser-v09
     import:           warnings
     main-is:          Main.hs
     build-depends:
         base ^>=4.17.2.1
       , text ^>=2.0.2
 
-    hs-source-dirs:   app-v9
+    hs-source-dirs:   app-v09
     default-language: Haskell2010
 
 executable csv-parser-v10
@@ -187,5 +187,15 @@ executable csv-parser-v12
       , text ^>=2.0.2
 
     hs-source-dirs:   app-v12
+    default-language: Haskell2010
+
+executable csv-parser-v13
+    import:           warnings
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.17.2.1
+      , text ^>=2.0.2
+
+    hs-source-dirs:   app-v13
     default-language: Haskell2010
 
