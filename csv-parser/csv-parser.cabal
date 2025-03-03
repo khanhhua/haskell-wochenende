@@ -199,3 +199,13 @@ executable csv-parser-v13
     hs-source-dirs:   app-v13
     default-language: Haskell2010
 
+executable csv-parser-v13-semigroup
+    import:           warnings
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.17.2.1
+      , text ^>=2.0.2
+
+    hs-source-dirs:   app-v13-semigroup
+    default-language: Haskell2010
+
