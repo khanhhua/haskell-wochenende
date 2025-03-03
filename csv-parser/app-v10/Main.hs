@@ -39,6 +39,8 @@ extractRow config text =
       tupleValueTypes = zip (convertors config) values
   in map (\(fn, value) -> (fn value)) tupleValueTypes
 
+extractProgLang :: ExtractConfig [CsvData] -> T.Text -> ProgLang
+extractProgLang config text = fromCsv $ extractRow config text
 
 runMapperFn config csvData =
   let f = mapperFn config
@@ -69,7 +71,7 @@ main = do
       --   and ....
       config = (\name level -> [CsvText name, CsvNumber level]) <$> nameConfig <*> levelConfig
 
-      progLangRows = map (fromCsv . runExtractConfig config) rows :: [ProgLang]
+      progLangRows = map (extractProgLang config) rows :: [ProgLang]
 
   forM progLangRows (\row -> putStrLn $ show row)
   return ()
