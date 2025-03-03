@@ -33,20 +33,12 @@ instance Applicative ExtractConfig where
           f' = f csvData
       in f' a
 
-extractRow :: ExtractConfig [CsvData] -> T.Text  -> [CsvData]
+extractRow :: ExtractConfig a -> T.Text -> a
 extractRow config text =
   let values = T.splitOn ";" text
       tupleValueTypes = zip (convertors config) values
-  in map (\(fn, value) -> (fn value)) tupleValueTypes
-
-extractProgLang :: ExtractConfig [CsvData] -> T.Text -> ProgLang
-extractProgLang config text = fromCsv $ extractRow config text
-
-runMapperFn config csvData =
-  let f = mapperFn config
-  in f csvData
-
-runExtractConfig config = runMapperFn config . extractRow config
+      csvData = map (\(fn, value) -> (fn value)) tupleValueTypes
+  in mapperFn config csvData
 
 class FromCsv a where
   fromCsv :: [CsvData] -> a
@@ -69,9 +61,11 @@ main = do
       -- TODO: Explain the categorical bijective relation between
       --       extractFn = extractCsvData <$> mapName <*> mapLevel
       --   and ....
-      config = (\name level -> [CsvText name, CsvNumber level]) <$> nameConfig <*> levelConfig
+      config = (\csvName csvLevel -> fromCsv [csvName, csvLevel])
+                 <$> nameConfig
+                 <*> levelConfig :: ExtractConfig ProgLang
 
-      progLangRows = map (extractProgLang config) rows :: [ProgLang]
+      progLangRows = map (extractRow config) rows
 
   forM progLangRows (\row -> putStrLn $ show row)
   return ()
@@ -79,18 +73,9 @@ main = do
 convertText Text text = CsvText $ T.unpack text
 convertText Number text = CsvNumber (read $ T.unpack text :: Int)
 
-extractCsvData :: String -> Int -> [CsvData]
-extractCsvData name level = [CsvText name, CsvNumber level]
+mapName :: [CsvData] -> CsvData
+mapName (item : _items) = item
 
-mapName :: [CsvData] -> String
-mapName (item : _items) =
-  case item of
-    CsvText s -> s
-    _ -> error "Invalid row data"
-
-mapLevel :: [CsvData] -> Int
-mapLevel (_item : item : _items) =
-  case item of
-    CsvNumber n -> n
-    _ -> error "Invalid row data"
+mapLevel :: [CsvData] -> CsvData
+mapLevel (_item : item : _items) = item
 
