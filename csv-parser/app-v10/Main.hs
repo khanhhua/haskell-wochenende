@@ -3,7 +3,6 @@ module Main where
 
 import Control.Monad (forM)
 import qualified Data.Text as T
-import Main (runExtractConfig)
 
 data CsvType = Text | Number
 data CsvData = CsvText String | CsvNumber Int
