@@ -179,3 +179,13 @@ executable csv-parser-v11
     hs-source-dirs:   app-v11
     default-language: Haskell2010
 
+executable csv-parser-v12
+    import:           warnings
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.17.2.1
+      , text ^>=2.0.2
+
+    hs-source-dirs:   app-v12
+    default-language: Haskell2010
+
