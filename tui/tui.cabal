@@ -84,3 +84,9 @@ executable tui-v03
     import:           warnings, deps
     main-is:          Main.hs
     hs-source-dirs:   app-v03
+
+executable tui-v04
+    import:           warnings, deps
+    main-is:          Main.hs
+    hs-source-dirs:   app-v04
+
