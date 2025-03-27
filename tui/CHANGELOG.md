@@ -1,5 +1,9 @@
 # Revision history for tui
 
-## 0.0.0.1 -- YYYY-mm-dd
+## v05
 
-* First version. Released on an unsuspecting world.
+Correctly merge and apply TuiElement size
+
+## v06
+
+Show and control the cursor
